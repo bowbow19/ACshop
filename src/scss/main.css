@@ -499,6 +499,7 @@ header {
 main {
   position: absolute;
   top: 72px;
+  width: 100%;
 }
 
 .stepper-panel {
@@ -509,31 +510,35 @@ main {
   display: flex;
   margin: 24px auto;
 }
-
-.step {
+.stepper-panel .step {
   flex: 1;
   text-align: center;
+  color: #2A2A2A;
 }
-.step:nth-child(1) .circle-container::after {
+.stepper-panel .step:nth-child(1) .circle-container::after {
   content: "1";
 }
-.step:nth-child(2) .circle-container::after {
+.stepper-panel .step:nth-child(2) .circle-container::after {
   content: "2";
 }
-.step:nth-child(3) .circle-container::after {
+.stepper-panel .step:nth-child(3) .circle-container::after {
   content: "3";
 }
-.step .circle-container {
+.stepper-panel .step .circle-container {
   height: 32px;
   width: 32px;
-  background: #000;
+  background: #FFF;
+  border: 1px solid #AFB1BD;
   border-radius: 50%;
-  color: white;
+  color: #2A2A2A;
   margin: 0 auto;
 }
-.step .label-container {
+.stepper-panel .step .label-container {
   margin-top: 10px;
   visibility: hidden;
+}
+.stepper-panel .step.checked .label-container, .stepper-panel .step.active .label-container {
+  color: #2A2A2A;
 }
 
 @media screen and (min-width: 375px) {
