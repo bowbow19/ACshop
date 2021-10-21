@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* reset css */
 body {
   margin: 0;
@@ -506,39 +507,56 @@ main {
   height: 80px;
 }
 .stepper-panel .stepper-container {
-  width: 80%;
   display: flex;
-  margin: 24px auto;
+  margin-top: 24px;
 }
-.stepper-panel .step {
+.stepper-panel .stepper-container .step {
   flex: 1;
+  position: relative;
   text-align: center;
   color: #2A2A2A;
 }
-.stepper-panel .step:nth-child(1) .circle-container::after {
+.stepper-panel .stepper-container .step:nth-child(1) .circle-container::after {
   content: "1";
 }
-.stepper-panel .step:nth-child(2) .circle-container::after {
+.stepper-panel .stepper-container .step:nth-child(2) .circle-container::after {
   content: "2";
 }
-.stepper-panel .step:nth-child(3) .circle-container::after {
+.stepper-panel .stepper-container .step:nth-child(3) .circle-container::after {
   content: "3";
 }
-.stepper-panel .step .circle-container {
+.stepper-panel .stepper-container .step .circle-container {
   height: 32px;
   width: 32px;
   background: #FFF;
   border: 1px solid #AFB1BD;
+  color: #AFB1BD;
   border-radius: 50%;
-  color: #2A2A2A;
   margin: 0 auto;
 }
-.stepper-panel .step .label-container {
+.stepper-panel .stepper-container .step .label-container {
   margin-top: 10px;
   visibility: hidden;
 }
-.stepper-panel .step.checked .label-container, .stepper-panel .step.active .label-container {
+.stepper-panel .stepper-container .step.checked .circle-container, .stepper-panel .stepper-container .step.active .circle-container {
+  background-color: #2A2A2A;
+  border: 1px solid #2A2A2A;
+  color: #FFF;
+}
+.stepper-panel .stepper-container .step.checked .label-container, .stepper-panel .stepper-container .step.active .label-container {
   color: #2A2A2A;
+}
+.stepper-panel .stepper-container .step.check .circle-container::after {
+  content: "✔";
+}
+.stepper-panel .stepper-container .step .connect-line {
+  display: block;
+  height: 1px;
+  background-color: #2A2A2A;
+  position: absolute;
+  top: 16px;
+  right: calc(50% + 32px);
+  left: calc(-50% + 32px);
 }
 
 @media screen and (min-width: 375px) {
