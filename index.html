@@ -60,23 +60,28 @@
 
       <div class="form-panel">
         <div class="container form-container">
-          <form action="form" class="a-form">
+          <form id="a-form">
             <div class="form-content">
               <!-- 從這邊開始放入各part表單內容 -->
+              <!-- 第一頁 -->
               <div class="part">
                 <h4>寄送地址</h4>
-                <div class="form-row">
-                  <label for="">稱謂</label>
-                  <select name="a-type" id="a-type">
-                    <option value="">請選擇稱謂</option>
-                    <option value="先生">先生</option>
-                    <option value="小姐">小姐</option>
-                    <option value="不拘">不拘</option>
-                  </select>
-                </div>
-                <div class="form-row">
-                  <label for="">姓名</label>
-                  <input id="name" type="text" placeholder="請輸入姓名">
+                <div class="form-row-gender">
+                  <div class="form-row">
+                    <label for="">稱謂</label>
+                    <div class="select-wrapper">
+                      <select name="a-type" id="a-type">
+                        <option value="">請選擇稱謂</option>
+                        <option value="先生">先生</option>
+                        <option value="小姐">小姐</option>
+                        <option value="不拘">不拘</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label for="">姓名</label>
+                    <input id="name" type="text" placeholder="請輸入姓名">
+                  </div>
                 </div>
                 <div class="form-row">
                   <label for="">電話</label>
@@ -88,22 +93,25 @@
                 </div>
                 <div class="form-row">
                   <label for="">縣市</label>
-                  <select name="b-type" id="b-type">
-                    <!-- 有時間的話，做API縣市資料串接 -->
-                    <option value="">請選擇縣市</option>
-                    <option value="">北部</option>
-                    <option value="">中部</option>
-                    <option value="">南部</option>
-                    <option value="">中部</option>
-                    <option value="">不拘</option>
-                  </select>
+                  <div class="select-wrapper">
+                    <select name="b-type" id="b-type">
+                      <!-- 有時間的話，做API縣市資料串接 -->
+                      <option value="">請選擇縣市</option>
+                      <option value="">北部</option>
+                      <option value="">中部</option>
+                      <option value="">南部</option>
+                      <option value="">中部</option>
+                      <option value="">不拘</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="form-row">
                   <label for="">地址</label>
                   <input id="address" type="text" placeholder="請輸入地址">
                 </div>
               </div>
-              <div class="part">
+              <div class="part d-none">
+                <!-- 第二頁 -->
                 <h4>運送方式</h4>
                 <div class="form-row">
                   <div class="form-option">
@@ -125,7 +133,8 @@
                   </div>
                 </div>
               </div>
-              <div class="part">
+              <div class="part d-none">
+                <!-- 第三頁 -->
                 <!-- 有力氣再做資料驗證 -->
                 <div class="form-row">
                   <label for="">持卡人姓名</label>
@@ -145,12 +154,12 @@
                 </div>
               </div>
             </div>
-
-            <div id="btn-control" class="control-panel">
-              <button class="btn btn-outline">上一步</button>
-              <button class="btn btn-primary">下一步</button>
+            <div id="btn-control" class="control-panel d-flex ">
+              <button disabled class="btn btn-outline ">上一步</button>
+              <button class="btn btn-primary ">下一步→</button>
             </div>
           </form>
+
           <div class="shopping-car">
             <div class="container shopping-car-container">
               <div class="card-list">

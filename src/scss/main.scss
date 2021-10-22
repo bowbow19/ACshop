@@ -153,6 +153,13 @@ $abbrev in (margin: m, padding: p) {
   }
 }
 
+%input-style {
+  border: 1px solid $body-color;
+  border-radius: 5px;
+  font: size 16px;
+  width: 90%;
+  padding: 8px;
+}
 
 %standard-boxshadow {
   box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1)
@@ -356,6 +363,7 @@ main {
       color: $light-gray;
       border-radius: 50%;
       margin: 0 auto;
+      
     }
 
     .label-container {
@@ -363,7 +371,12 @@ main {
       visibility: hidden;
     }
 
-    &.checked,
+    &.check{
+      .circle-container {
+        border: 1px solid $body-color;
+        color: black;
+      }
+    }
     &.active {
       .circle-container {
         background-color: $body-color;
@@ -376,8 +389,12 @@ main {
       }
     }
 
-    &.check .circle-container::after {
-      content: "\2714"
+    &.checked .circle-container::after {
+      content: "\2714";
+.circle-container {
+        border: 1px solid $body-color;
+        color: black;
+      }
     }
 
     .connect-line {
@@ -393,6 +410,59 @@ main {
   }
 }
 
+.form-panel{
+  @extend %standard-boxshadow;
+  padding: 32px 0;
+  .form-container{
+// 還沒想應該怎麼布局
+  }
+
+  
+}
+form {
+  h4{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+  }
+  .form-row-gender{
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .form-row {
+    margin-bottom: 24px;
+    font-weight: 700;
+    line-height: 16px;
+    font-size: 12px;
+    >label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+  }
+input{
+  @extend %input-style;
+}
+  select{
+    @extend %input-style;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+
+  .select-wrapper{
+    border: 1px solid red;
+    position:relative;
+    &::after{
+      content:'\25BE';
+      position:absolute;
+      top:50%;
+      // right: 
+      transform: translateY(-50%);
+    }
+  }
+}
 
 
 @media screen and (min-width: 375px) {
