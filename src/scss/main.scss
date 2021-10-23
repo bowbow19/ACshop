@@ -72,83 +72,93 @@ input:invalid {
   box-shadow: none;
 }
 
-
-
 /* basic setting */
-$body-bg: #FFF; //主背景色
-$body-color: #2A2A2A; //主體文字顏色
+$body-bg: #fff; //主背景色
+$body-color: #2a2a2a; //主體文字顏色
 $dark-gray: #333333; //步驟欄勾選色
-$light-gray: #AFB1BD; //框線色
-$light-pink: #F67599; //選單色
-$sizes:(25:25%,
-  50:50%,
-  75:75%,
-  100:100%);
+$light-gray: #afb1bd; //框線色
+$light-pink: #f67599; //選單色
+$sizes: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+);
 
 // 設定 padding
-@each $prop,
-$abbrev in (width: w, height: h) {
-
-  @each $num,
-  $val in $sizes {
+@each $prop, $abbrev in (width: w, height: h) {
+  @each $num, $val in $sizes {
     .#{$abbrev}-#{$num} {
-      #{$prop}:#{$val};
+      #{$prop}: #{$val};
     }
   }
 }
 
 // 使用 @each 產出css sizs設定
 $spacer: 1rem;
-$spacers: (0: 0,
-  1:($spacer*0.25),
-  2:($spacer*0.5),
-  3:($spacer*0.75),
-  4:$spacer,
-  5:($spacer*1.25),
-  6:($spacer*1.5),
-  7:($spacer*1.75),
-  8:($spacer*2));
+$spacers: (
+  0: 0,
+  1: (
+    $spacer * 0.25,
+  ),
+  2: (
+    $spacer * 0.5,
+  ),
+  3: (
+    $spacer * 0.75,
+  ),
+  4: $spacer,
+  5: (
+    $spacer * 1.25,
+  ),
+  6: (
+    $spacer * 1.5,
+  ),
+  7: (
+    $spacer * 1.75,
+  ),
+  8: (
+    $spacer * 2,
+  ),
+);
 
 // 設定margin
-@each $prop,
-$abbrev in (margin: m, padding: p) {
-
-  @each $num,
-  $val in $sizes {
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $num, $val in $sizes {
     .#{$abbrev}-#{$num} {
-      #{$prop}:#{$val};
+      #{$prop}: #{$val};
     }
 
     .#{$abbrev}t-#{$num} {
-      #{$prop}:#{$val};
+      #{$prop}: #{$val};
     }
 
     .#{$abbrev}r-#{$num} {
-      #{$prop}:#{$val};
+      #{$prop}: #{$val};
     }
 
     .#{$abbrev}l-#{$num} {
-      #{$prop}:#{$val};
+      #{$prop}: #{$val};
     }
 
     .#{$abbrev}b-#{$num} {
-      #{$prop}:#{$val};
+      #{$prop}: #{$val};
     }
 
     .#{$abbrev}x-#{$num} {
-      #{$prop}:#{$val};
+      #{$prop}: #{$val};
     }
 
     .#{$abbrev}y-#{$num} {
-      #{$prop}:#{$val};
+      #{$prop}: #{$val};
     }
   }
 }
 
-@mixin getStepNums ($num) {
+@mixin getStepNums($num) {
   @for $i from 1 through $num {
     &:nth-child(#{$i}) .circle-container::after {
-      content:"#{$i}";
+      content: "#{$i}";
     }
   }
 }
@@ -162,7 +172,7 @@ $abbrev in (margin: m, padding: p) {
 }
 
 %standard-boxshadow {
-  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1)
+  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
 }
 
 // 對 html 跟 body，各display進行class的命名
@@ -174,7 +184,7 @@ html {
 body {
   height: 100%;
   background: $body-bg;
-  color: $body-color
+  color: $body-color;
 }
 
 .d-none {
@@ -264,10 +274,9 @@ header {
 .nav {
   position: absolute;
   top: 100%;
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
   transform: scale(1, 0);
   transform-origin: top;
-
 }
 
 .navbar-brand {
@@ -277,7 +286,7 @@ header {
 .nav-item {
   margin: 1.4rem;
   padding-bottom: 16px;
-  border-bottom: 1px solid #E5e5e5;
+  border-bottom: 1px solid #e5e5e5;
   opacity: 0;
 }
 
@@ -286,12 +295,12 @@ header {
   position: absolute;
 }
 
-.navbar-toggle:checked~.nav {
+.navbar-toggle:checked ~ .nav {
   transform: scale(1, 1);
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
 }
 
-.navbar-toggle:checked~.nav .nav-item {
+.navbar-toggle:checked ~ .nav .nav-item {
   opacity: 1;
 }
 
@@ -347,88 +356,85 @@ main {
     display: flex;
     margin-top: 24px;
 
-  .step {
-    flex: 1;
-    position: relative;
-    text-align: center;
+    .step {
+      flex: 1;
+      position: relative;
+      text-align: center;
 
-    @include getStepNums(3);
-    color: $body-color;
+      @include getStepNums(3);
+      color: $body-color;
 
-    .circle-container {
-      height: 32px;
-      width: 32px;
-      background: $body-bg;
-      border: 1px solid $light-gray;
-      color: $light-gray;
-      border-radius: 50%;
-      margin: 0 auto;
-      
-    }
-
-    .label-container {
-      margin-top: 10px;
-      visibility: hidden;
-    }
-
-    &.check{
       .circle-container {
-        border: 1px solid $body-color;
-        color: black;
-      }
-    }
-    &.active {
-      .circle-container {
-        background-color: $body-color;
-        border: 1px solid $body-color;
-        color: $body-bg;
+        height: 32px;
+        width: 32px;
+        background: $body-bg;
+        border: 1px solid $light-gray;
+        color: $light-gray;
+        border-radius: 50%;
+        margin: 0 auto;
       }
 
       .label-container {
-        color: $body-color
+        margin-top: 10px;
+        visibility: hidden;
       }
-    }
 
-    &.checked .circle-container::after {
-      content: "\2714";
-.circle-container {
-        border: 1px solid $body-color;
-        color: black;
+      &.check {
+        .circle-container {
+          border: 1px solid $body-color;
+          color: black;
+        }
       }
-    }
+      &.active {
+        .circle-container {
+          background-color: $body-color;
+          border: 1px solid $body-color;
+          color: $body-bg;
+        }
 
-    .connect-line {
-      display: block;
-      height: 1px;
-      background-color: $body-color;
-      position: absolute;
-      top:16px;
-      right: calc(50% + 32px);
-      left: calc(-50% + 32px);
+        .label-container {
+          color: $body-color;
+        }
+      }
+
+      &.checked .circle-container::after {
+        content: "\2714";
+        .circle-container {
+          border: 1px solid $body-color;
+          color: black;
+        }
+      }
+
+      .connect-line {
+        display: block;
+        height: 1px;
+        background-color: $body-color;
+        position: absolute;
+        top: 16px;
+        right: calc(50% + 32px);
+        left: calc(-50% + 32px);
       }
     }
   }
 }
 
-.form-panel{
+.form-panel {
   @extend %standard-boxshadow;
   padding: 32px 0;
-  .form-container{
-// 還沒想應該怎麼布局
+  position: relative;
+  .form-container {
+    // 還沒想應該怎麼布局
   }
-
-  
 }
 form {
-  h4{
+  h4 {
     font-weight: 700;
     font-size: 24px;
     line-height: 24px;
   }
-  .form-row-gender{
+  .form-row-gender {
     display: flex;
     flex-direction: row;
-    
   }
 
   .form-row {
@@ -436,34 +442,68 @@ form {
     font-weight: 700;
     line-height: 16px;
     font-size: 12px;
-    >label {
+    > label {
       display: block;
       margin-bottom: 6px;
       font-weight: 500;
     }
+
+    .part {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+    }
   }
-input{
-  @extend %input-style;
-}
-  select{
+
+  .control-panel {
+    position: absolute;
+    display: inline;
+    width: 80%;
+    height: 50px;
+    bottom: -19px;
+  }
+
+  input {
+    @extend %input-style;
+  }
+  select {
     @extend %input-style;
     -webkit-appearance: none;
     cursor: pointer;
   }
 
-  .select-wrapper{
+  .select-wrapper {
     border: 1px solid red;
-    position:relative;
-    &::after{
-      content:'\25BE';
-      position:absolute;
-      top:50%;
-      // right: 
+    position: relative;
+    &::after {
+      content: "\25BE";
+      position: absolute;
+      top: 50%;
       transform: translateY(-50%);
     }
   }
 }
 
+.card-list {
+  .card {
+    display: flex;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    .card-content {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-end;
+    }
+  }
+}
+.cart {
+  width: 100%;
+}
 
 @media screen and (min-width: 375px) {
   .navbar-toggle-label {

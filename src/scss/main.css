@@ -331,7 +331,7 @@ input:invalid {
 }
 
 form select, form input {
-  border: 1px solid #2A2A2A;
+  border: 1px solid #2a2a2a;
   border-radius: 5px;
   font: size 16px;
   width: 90%;
@@ -349,8 +349,8 @@ html {
 
 body {
   height: 100%;
-  background: #FFF;
-  color: #2A2A2A;
+  background: #fff;
+  color: #2a2a2a;
 }
 
 .d-none {
@@ -452,7 +452,7 @@ header {
 .nav-item {
   margin: 1.4rem;
   padding-bottom: 16px;
-  border-bottom: 1px solid #E5e5e5;
+  border-bottom: 1px solid #e5e5e5;
   opacity: 0;
 }
 
@@ -526,7 +526,7 @@ main {
   flex: 1;
   position: relative;
   text-align: center;
-  color: #2A2A2A;
+  color: #2a2a2a;
 }
 .stepper-panel .stepper-container .step:nth-child(1) .circle-container::after {
   content: "1";
@@ -540,9 +540,9 @@ main {
 .stepper-panel .stepper-container .step .circle-container {
   height: 32px;
   width: 32px;
-  background: #FFF;
-  border: 1px solid #AFB1BD;
-  color: #AFB1BD;
+  background: #fff;
+  border: 1px solid #afb1bd;
+  color: #afb1bd;
   border-radius: 50%;
   margin: 0 auto;
 }
@@ -551,28 +551,28 @@ main {
   visibility: hidden;
 }
 .stepper-panel .stepper-container .step.check .circle-container {
-  border: 1px solid #2A2A2A;
+  border: 1px solid #2a2a2a;
   color: black;
 }
 .stepper-panel .stepper-container .step.active .circle-container {
-  background-color: #2A2A2A;
-  border: 1px solid #2A2A2A;
-  color: #FFF;
+  background-color: #2a2a2a;
+  border: 1px solid #2a2a2a;
+  color: #fff;
 }
 .stepper-panel .stepper-container .step.active .label-container {
-  color: #2A2A2A;
+  color: #2a2a2a;
 }
 .stepper-panel .stepper-container .step.checked .circle-container::after {
   content: "✔";
 }
 .stepper-panel .stepper-container .step.checked .circle-container::after .circle-container {
-  border: 1px solid #2A2A2A;
+  border: 1px solid #2a2a2a;
   color: black;
 }
 .stepper-panel .stepper-container .step .connect-line {
   display: block;
   height: 1px;
-  background-color: #2A2A2A;
+  background-color: #2a2a2a;
   position: absolute;
   top: 16px;
   right: calc(50% + 32px);
@@ -581,6 +581,7 @@ main {
 
 .form-panel {
   padding: 32px 0;
+  position: relative;
 }
 form h4 {
   font-weight: 700;
@@ -602,6 +603,18 @@ form .form-row > label {
   margin-bottom: 6px;
   font-weight: 500;
 }
+form .form-row .part {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+form .control-panel {
+  position: absolute;
+  display: inline;
+  width: 80%;
+  height: 50px;
+  bottom: -19px;
+}
 form select {
   -webkit-appearance: none;
   cursor: pointer;
@@ -615,6 +628,25 @@ form .select-wrapper::after {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.card-list .card {
+  display: flex;
+}
+.card-list .card img {
+  width: 100px;
+  height: 100px;
+}
+.card-list .card .card-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.cart {
+  width: 100%;
 }
 
 @media screen and (min-width: 375px) {

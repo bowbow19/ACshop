@@ -41,7 +41,7 @@ function setBtnDisabled() {
   }
 
   if (step === 2) {
-    nextBtn.innerHTML = '送出申請'
+    nextBtn.innerHTML = '確認下單'
   } else {
     nextBtn.innerHTML = '下一步'
   }
