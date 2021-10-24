@@ -73,6 +73,12 @@ input:invalid {
   box-shadow: none;
 }
 
+::-webkit-scrollbar {
+  /* make scrollbar transparent */
+  width: 0px;
+  background: transparent;
+}
+
 /* basic setting */
 .w-25 {
   width: 25%;
@@ -330,16 +336,12 @@ input:invalid {
   padding: 100%;
 }
 
-form select, form input {
+.form-panel .form-container .a-form select, .form-panel .form-container .a-form input {
   border: 1px solid #2a2a2a;
   border-radius: 5px;
   font: size 16px;
-  width: 90%;
+  width: 100%;
   padding: 8px;
-}
-
-.form-panel {
-  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
 }
 
 html {
@@ -426,7 +428,15 @@ body {
 }
 
 .main-app {
-  margin: 0 15px 0 15px;
+  width: 95%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.main-content {
+  position: absolute;
+  top: 56px;
+  width: 100%;
 }
 
 header {
@@ -509,12 +519,6 @@ header {
   content: "";
 }
 
-main {
-  position: absolute;
-  top: 72px;
-  width: 100%;
-}
-
 .stepper-panel {
   height: 80px;
 }
@@ -583,55 +587,155 @@ main {
   padding: 32px 0;
   position: relative;
 }
-form h4 {
+.form-panel .form-container {
+  width: 95%;
+}
+.form-panel .form-container .a-form h4 {
   font-weight: 700;
   font-size: 24px;
   line-height: 24px;
 }
-form .form-row-gender {
-  display: flex;
-  flex-direction: row;
-}
-form .form-row {
+.form-panel .form-container .a-form .form-row {
   margin-bottom: 24px;
   font-weight: 700;
   line-height: 16px;
   font-size: 12px;
 }
-form .form-row > label {
+.form-panel .form-container .a-form .form-row > label {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
 }
-form .form-row .part {
+.form-panel .form-container .a-form .part {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
 }
-form .control-panel {
-  position: absolute;
-  display: inline;
-  width: 80%;
-  height: 50px;
-  bottom: -19px;
+.form-panel .form-container .a-form .part .part-title {
+  grid-column: 1/7;
+  margin-bottom: 30px;
 }
-form select {
+.form-panel .form-container .a-form .part .part-gender {
+  grid-column: 1/4;
+  margin-right: 30px;
+}
+.form-panel .form-container .a-form .part .part-name {
+  grid-column: 4/7;
+}
+.form-panel .form-container .a-form .part .part-phone,
+.form-panel .form-container .a-form .part .part-email,
+.form-panel .form-container .a-form .part .part-city,
+.form-panel .form-container .a-form .part .part-add,
+.form-panel .form-container .a-form .part .part-shipping,
+.form-panel .form-container .a-form .part .card-name,
+.form-panel .form-container .a-form .part .card-number {
+  grid-column: 1/7;
+}
+.form-panel .form-container .a-form .part .card-date {
+  grid-column: 1/4;
+  margin-right: 30px;
+}
+.form-panel .form-container .a-form .part .card-cvc {
+  grid-column: 4/7;
+}
+.form-panel .form-container .a-form .part .form-radio {
+  grid-column: 1/7;
+}
+.form-panel .form-container .a-form .part .form-radio .form-option {
+  border: 1px solid #F0F0F5;
+  display: flex;
+  height: 60px;
+  margin-bottom: 24px;
+  position: relative;
+  align-items: center;
+}
+.form-panel .form-container .a-form .part .form-radio .option-radio {
+  margin: 26px;
+  width: 20px;
+  height: 20px;
+}
+.form-panel .form-container .a-form .part .form-radio .radio-text {
+  width: 100%;
+}
+.form-panel .form-container .a-form .part .form-radio .radio-fee {
+  width: 40px;
+}
+.form-panel .form-container .a-form select {
   -webkit-appearance: none;
   cursor: pointer;
 }
-form .select-wrapper {
-  border: 1px solid red;
+.form-panel .form-container .a-form .select-wrapper {
   position: relative;
 }
-form .select-wrapper::after {
+.form-panel .form-container .a-form .select-wrapper::after {
   content: "▾";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  right: 8px;
+}
+
+@media screen and (min-width: 375px) {
+  #main-app {
+    width: 85%;
+  }
+  #main-app .main-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #main-app .main-header .navbar-toggle-label {
+    display: none;
+  }
+  #main-app .main-header .nav {
+    all: unset;
+    width: 30%;
+  }
+  #main-app .main-header .nav-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  #main-app .main-header .nav-list .nav-item {
+    margin: 0;
+    opacity: 1;
+  }
+  #main-app .form-container {
+    width: 75%;
+  }
+  #main-app .form-container .part .part-phone {
+    grid-column: 1/4;
+    margin-right: 30px;
+  }
+  #main-app .form-container .part .part-email {
+    grid-column: 4/7;
+  }
+  #main-app .form-container .part .part-city {
+    grid-column: 1/3;
+    margin-right: 30px;
+  }
+  #main-app .form-container .part .part-add {
+    grid-column: 3/7;
+  }
+  #main-app .form-container .part .part-shipping,
+#main-app .form-container .part .part-cardholder-name,
+#main-app .form-container .part .part-cardnum {
+    grid-column: 1/7;
+  }
+  #main-app .form-container .part .part-cardexp {
+    grid-column: 1/4;
+  }
+  #main-app .form-container .part .part-cvc {
+    grid-column: 4/7;
+  }
+}
+.car-container {
+  border: 2px solid #F0F0F5;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .card-list .card {
   display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 .card-list .card img {
   width: 100px;
@@ -641,47 +745,46 @@ form .select-wrapper::after {
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
 }
 
 .cart {
   width: 100%;
 }
+.cart .cart-shipping,
+.cart .cart-shipping_price {
+  border-top: 1px solid #F0F0F5;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
 
-@media screen and (min-width: 375px) {
-  .navbar-toggle-label {
-    display: none;
-  }
-
-  .nav {
-    all: unset;
-  }
-
-  .nav-item {
-    margin: 0;
-    opacity: 1;
-  }
-
-  header {
-    display: grid;
-    grid-template-columns: 1fr minmax(320px, 1fr) auto minmax(120px, 1fr) 1fr;
-  }
-
-  .navbar-brand {
-    grid-column-start: 3;
-    grid-column-end: 4;
-  }
-
-  .nav-list {
-    grid-column-start: 2;
-    grid-column-end: 3;
-  }
-
-  .nav-icon {
-    grid-column-start: 5;
-    grid-column-end: 6;
-  }
+.control-panel {
+  margin-top: 32px;
+  padding: 24px 0;
+  border-top: 2px solid #E6E6EB;
+  justify-content: space-between;
+}
+.control-panel button {
+  height: 46px;
+  width: 100%;
+}
+.control-panel .btn-outline {
+  align-items: center;
+}
+.control-panel .btn-outline::before {
+  content: "←";
+  margin-right: 0.78rem;
+}
+.control-panel .btn-primary {
+  border-radius: 10px;
+  background-color: #F67599;
+  color: white;
+}
+.control-panel .btn-primary::after {
+  content: "→";
+  margin-left: 0.78rem;
 }
 
 /*# sourceMappingURL=main.css.map */

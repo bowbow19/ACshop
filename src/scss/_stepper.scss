@@ -1,0 +1,70 @@
+.stepper-panel {
+  height: 80px;
+
+  .stepper-container {
+    display: flex;
+    margin-top: 24px;
+
+    .step {
+      flex: 1;
+      position: relative;
+      text-align: center;
+
+      @include getStepNums(3);
+      color: $body-color;
+
+      .circle-container {
+        height: 32px;
+        width: 32px;
+        background: $body-bg;
+        border: 1px solid $light-gray;
+        color: $light-gray;
+        border-radius: 50%;
+        margin: 0 auto;
+      }
+
+      .label-container {
+        margin-top: 10px;
+        visibility: hidden;
+      }
+
+      &.check {
+        .circle-container {
+          border: 1px solid $body-color;
+          color: black;
+        }
+      }
+
+      &.active {
+        .circle-container {
+          background-color: $body-color;
+          border: 1px solid $body-color;
+          color: $body-bg;
+        }
+
+        .label-container {
+          color: $body-color;
+        }
+      }
+
+      &.checked .circle-container::after {
+        content: "\2714";
+
+        .circle-container {
+          border: 1px solid $body-color;
+          color: black;
+        }
+      }
+
+      .connect-line {
+        display: block;
+        height: 1px;
+        background-color: $body-color;
+        position: absolute;
+        top: 16px;
+        right: calc(50% + 32px);
+        left: calc(-50% + 32px);
+      }
+    }
+  }
+}

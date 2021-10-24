@@ -1,0 +1,78 @@
+@media screen and (min-width: 375px) {
+
+  #main-app {
+    width: 85%;
+
+
+    .main-header {
+      flex-direction: row;
+      justify-content: space-between;
+
+      .navbar-toggle-label {
+        display: none;
+      }
+
+      .nav {
+        all: unset;
+        width: 30%;
+      }
+      .nav-list{
+        display: flex;
+        justify-content: space-between;
+        .nav-item {
+        margin: 0;
+        opacity: 1;
+      }
+      }
+    
+
+    }
+
+    .form-container {
+      width: 75%;
+
+      .part {
+
+        .part-phone {
+          grid-column: 1/4;
+          margin-right: 30px;
+        }
+
+        .part-email {
+          grid-column: 4/7;
+        }
+        .part-city  {
+          grid-column: 1/3;
+          margin-right: 30px;
+        }
+
+        .part-add {
+          grid-column: 3/7;
+        }
+        
+        .part-shipping,
+        .part-cardholder-name,
+        .part-cardnum {
+          grid-column: 1/7;
+        }
+
+        .part-cardexp {
+          grid-column: 1/4;
+        }
+
+        .part-cvc {
+          grid-column: 4/7;
+        }
+
+      }
+    }
+
+
+
+
+
+
+
+  }
+
+}

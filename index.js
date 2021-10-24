@@ -1,13 +1,20 @@
 const form = document.getElementById('a-form')
-const formParts = form.querySelectorAll('.part')
+const formParts = form.querySelectorAll('.part-container')
 const stepControl = document.getElementById('step-control')
 const steps = stepControl.querySelectorAll('.step')
 const btnControl = document.getElementById('btn-control')
 const nextBtn = btnControl.querySelector('.btn-primary')
 const prevBtn = btnControl.querySelector('.btn-outline')
 
+const cardList =document.querySelector('#cart-list')
+
+
 let step = 0
 
+function displayAccount(num){
+  let htmlContent = ""
+  
+}
 
 function handleBtnControlClicked(event){
   event.preventDefault();
@@ -35,10 +42,12 @@ function handleBtnControlClicked(event){
 
 function setBtnDisabled() {
   if (step === 0) {
-    prevBtn.setAttribute('disabled', 'disabled')
+      prevBtn.classList.remove("d-none");
   } else {
     prevBtn.removeAttribute('disabled')
   }
+
+ 
 
   if (step === 2) {
     nextBtn.innerHTML = '確認下單'

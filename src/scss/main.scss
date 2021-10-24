@@ -1,492 +1,22 @@
-/* reset css */
-body {
-  margin: 0;
-  padding: 0;
+@import './_basic.scss';
+@import './_mobile.scss';
+@import './_header.scss';
+@import './_stepper.scss';
+@import './_form.scss';
+@import './desktop.scss';
+
+
+
+.car-container{
+  border: 2px solid #F0F0F5;
+  padding: 10px;
+  border-radius: 10px;
 }
-
-* {
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0px;
-  padding: 0px;
-}
-
-ul,
-ol,
-li {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-a,
-a:hover,
-a:focus {
-  text-decoration: none;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.btn,
-button,
-button:focus,
-input:focus,
-textarea:focus,
-select,
-select:focus,
-a:focus {
-  outline: 0px !important;
-}
-
-button {
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
-}
-
-button[disabled] {
-  pointer-events: none;
-}
-
-input {
-  padding: 0;
-}
-
-input:required {
-  box-shadow: none;
-}
-
-input:invalid {
-  box-shadow: none;
-}
-
-/* basic setting */
-$body-bg: #fff; //主背景色
-$body-color: #2a2a2a; //主體文字顏色
-$dark-gray: #333333; //步驟欄勾選色
-$light-gray: #afb1bd; //框線色
-$light-pink: #f67599; //選單色
-$sizes: (
-  25: 25%,
-  50: 50%,
-  75: 75%,
-  100: 100%,
-);
-
-// 設定 padding
-@each $prop, $abbrev in (width: w, height: h) {
-  @each $num, $val in $sizes {
-    .#{$abbrev}-#{$num} {
-      #{$prop}: #{$val};
-    }
-  }
-}
-
-// 使用 @each 產出css sizs設定
-$spacer: 1rem;
-$spacers: (
-  0: 0,
-  1: (
-    $spacer * 0.25,
-  ),
-  2: (
-    $spacer * 0.5,
-  ),
-  3: (
-    $spacer * 0.75,
-  ),
-  4: $spacer,
-  5: (
-    $spacer * 1.25,
-  ),
-  6: (
-    $spacer * 1.5,
-  ),
-  7: (
-    $spacer * 1.75,
-  ),
-  8: (
-    $spacer * 2,
-  ),
-);
-
-// 設定margin
-@each $prop, $abbrev in (margin: m, padding: p) {
-  @each $num, $val in $sizes {
-    .#{$abbrev}-#{$num} {
-      #{$prop}: #{$val};
-    }
-
-    .#{$abbrev}t-#{$num} {
-      #{$prop}: #{$val};
-    }
-
-    .#{$abbrev}r-#{$num} {
-      #{$prop}: #{$val};
-    }
-
-    .#{$abbrev}l-#{$num} {
-      #{$prop}: #{$val};
-    }
-
-    .#{$abbrev}b-#{$num} {
-      #{$prop}: #{$val};
-    }
-
-    .#{$abbrev}x-#{$num} {
-      #{$prop}: #{$val};
-    }
-
-    .#{$abbrev}y-#{$num} {
-      #{$prop}: #{$val};
-    }
-  }
-}
-
-@mixin getStepNums($num) {
-  @for $i from 1 through $num {
-    &:nth-child(#{$i}) .circle-container::after {
-      content: "#{$i}";
-    }
-  }
-}
-
-%input-style {
-  border: 1px solid $body-color;
-  border-radius: 5px;
-  font: size 16px;
-  width: 90%;
-  padding: 8px;
-}
-
-%standard-boxshadow {
-  box-shadow: 3px 0 13px 0 rgba(100, 112, 134, 0.1);
-}
-
-// 對 html 跟 body，各display進行class的命名
-html {
-  font-size: 16px;
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  background: $body-bg;
-  color: $body-color;
-}
-
-.d-none {
-  display: none;
-}
-
-.d-inline {
-  display: inline;
-}
-
-.d-inline-block {
-  display: block;
-}
-
-.d-block {
-  display: block;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.flex-row {
-  flex-direction: row;
-}
-
-.justify-content-end {
-  justify-content: end;
-}
-
-.justify-content-start {
-  justify-content: start;
-}
-
-.justify-content-center {
-  justify-content: center;
-}
-
-.justify-content-between {
-  justify-content: space-between;
-}
-
-.justify-content-around {
-  justify-content: space-around;
-}
-
-.align-content-start {
-  align-content: flex-start;
-}
-
-.align-content-end {
-  align-content: flex-end;
-}
-
-.align-content-center {
-  align-content: center;
-}
-
-.align-items-start {
-  align-items: flex-start;
-}
-
-.align-items-end {
-  align-content: flex-end;
-}
-
-.align-items-center {
-  align-content: center;
-}
-
-.main-app {
-  margin: 0 15px 0 15px;
-}
-
-header {
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  height: 56px;
-  text-align: center;
-}
-
-.nav {
-  position: absolute;
-  top: 100%;
-  transition: transform 0.2s ease-out;
-  transform: scale(1, 0);
-  transform-origin: top;
-}
-
-.navbar-brand {
-  line-height: 56px;
-}
-
-.nav-item {
-  margin: 1.4rem;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e5e5e5;
-  opacity: 0;
-}
-
-.navbar-toggle {
-  visibility: hidden;
-  position: absolute;
-}
-
-.navbar-toggle:checked ~ .nav {
-  transform: scale(1, 1);
-  transition: transform 0.2s ease-out;
-}
-
-.navbar-toggle:checked ~ .nav .nav-item {
-  opacity: 1;
-}
-
-.navbar-toggle-label {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.hamburger {
-  position: relative;
-  width: 20px;
-  height: 3px;
-  background: #000;
-}
-
-.hamburger::before,
-.hamburger::after {
-  position: absolute;
-  height: 3px;
-  background: #000;
-  left: 0;
-}
-
-.hamburger::before {
-  top: 8px;
-  width: 10px;
-}
-
-.hamburger::after {
-  bottom: 8px;
-  width: 30px;
-}
-
-.hamburger::before,
-.hamburger::after {
-  content: "";
-}
-
-main {
-  position: absolute;
-  top: 72px;
-  width: 100%;
-}
-
-.stepper-panel {
-  height: 80px;
-
-  .stepper-container {
-    display: flex;
-    margin-top: 24px;
-
-    .step {
-      flex: 1;
-      position: relative;
-      text-align: center;
-
-      @include getStepNums(3);
-      color: $body-color;
-
-      .circle-container {
-        height: 32px;
-        width: 32px;
-        background: $body-bg;
-        border: 1px solid $light-gray;
-        color: $light-gray;
-        border-radius: 50%;
-        margin: 0 auto;
-      }
-
-      .label-container {
-        margin-top: 10px;
-        visibility: hidden;
-      }
-
-      &.check {
-        .circle-container {
-          border: 1px solid $body-color;
-          color: black;
-        }
-      }
-      &.active {
-        .circle-container {
-          background-color: $body-color;
-          border: 1px solid $body-color;
-          color: $body-bg;
-        }
-
-        .label-container {
-          color: $body-color;
-        }
-      }
-
-      &.checked .circle-container::after {
-        content: "\2714";
-        .circle-container {
-          border: 1px solid $body-color;
-          color: black;
-        }
-      }
-
-      .connect-line {
-        display: block;
-        height: 1px;
-        background-color: $body-color;
-        position: absolute;
-        top: 16px;
-        right: calc(50% + 32px);
-        left: calc(-50% + 32px);
-      }
-    }
-  }
-}
-
-.form-panel {
-  @extend %standard-boxshadow;
-  padding: 32px 0;
-  position: relative;
-  .form-container {
-    // 還沒想應該怎麼布局
-  }
-}
-form {
-  h4 {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 24px;
-  }
-  .form-row-gender {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .form-row {
-    margin-bottom: 24px;
-    font-weight: 700;
-    line-height: 16px;
-    font-size: 12px;
-    > label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-
-    .part {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(6, 1fr);
-    }
-  }
-
-  .control-panel {
-    position: absolute;
-    display: inline;
-    width: 80%;
-    height: 50px;
-    bottom: -19px;
-  }
-
-  input {
-    @extend %input-style;
-  }
-  select {
-    @extend %input-style;
-    -webkit-appearance: none;
-    cursor: pointer;
-  }
-
-  .select-wrapper {
-    border: 1px solid red;
-    position: relative;
-    &::after {
-      content: "\25BE";
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-}
-
 .card-list {
   .card {
     display: flex;
+    justify-content: space-between;
+    padding: 10px;
 
     img {
       width: 100px;
@@ -496,46 +26,52 @@ form {
       width: 50%;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: flex-end;
     }
   }
 }
 .cart {
   width: 100%;
+  .cart-shipping,
+  .cart-shipping_price {
+    border-top: 1px solid #F0F0F5;
+    padding: 15px;
+    display:flex;
+    justify-content: space-between;
+  }
 }
 
-@media screen and (min-width: 375px) {
-  .navbar-toggle-label {
-    display: none;
+.control-panel {
+
+  margin-top: 32px;
+  padding: 24px 0;
+  border-top: 2px solid #E6E6EB;
+  justify-content: space-between;
+
+
+  button {
+    height: 46px;
+    width: 100%;
   }
 
-  .nav {
-    all: unset;
+  .btn-outline {
+    align-items: center;
+
+    &::before {
+      content: "\2190";
+      margin-right: 0.78rem;
+    }
   }
 
-  .nav-item {
-    margin: 0;
-    opacity: 1;
-  }
+  .btn-primary {
+    border-radius: 10px;
+    background-color: #F67599;
+    color: white;
 
-  header {
-    display: grid;
-    grid-template-columns: 1fr minmax(320px, 1fr) auto minmax(120px, 1fr) 1fr;
-  }
-
-  .navbar-brand {
-    grid-column-start: 3;
-    grid-column-end: 4;
-  }
-
-  .nav-list {
-    grid-column-start: 2;
-    grid-column-end: 3;
-  }
-
-  .nav-icon {
-    grid-column-start: 5;
-    grid-column-end: 6;
+    &::after {
+      content: "\2192";
+      margin-left: 0.78rem;
+    }
   }
 }

@@ -12,7 +12,7 @@
 <body>
   <div class="main-app" id="main-app">
 
-    <header>
+    <!-- <header class="main-header">
       <a href="#" class="navbar-brand">ALPHA Shop</a>
       <input type="checkbox" class="navbar-toggle" id="navbar-toggle">
       <nav class="nav w-100 ">
@@ -24,17 +24,17 @@
           <li class="nav-item"><a href="#" class="nav-link">聯絡我們</a> </li>
         </ul>
         <div class="nav-icon">
-          <a href="#"><i class="fas fa-search"></i></a>
-          <a href="#"><i class="fas fa-shopping-cart"></i></a>
-          <a href="#"><i class="far fa-moon"></i></a>
+          <a href="#"><i class="fas fa-search icon"></i></a>
+          <a href="#"><i class="fas fa-shopping-cart icon"></i></a>
+          <a href="#"><i class="far fa-moon icon"></i></a>
         </div>
       </nav>
       <label class="navbar-toggle-label" for="navbar-toggle">
         <span class="hamburger"></span>
       </label>
-    </header>
+    </header> -->
 
-    <main id="main-content">
+    <main id="main-content" class="main-content">
       <div id="step-control" class="stepper-panel">
         <h2 class="stepper-title">結帳</h2>
         <div class="container stepper-container">
@@ -60,14 +60,14 @@
 
       <div class="form-panel">
         <div class="container form-container">
-          <form id="a-form">
+          <form id="a-form" class="a-form">
             <div class="form-content">
               <!-- 從這邊開始放入各part表單內容 -->
               <!-- 第一頁 -->
-              <div class="part">
-                <h4>寄送地址</h4>
-                <div class="form-row-gender">
-                  <div class="form-row">
+              <div class="part-container">
+                <div class="part">
+                  <h4 class="part-title">寄送地址</h4>
+                  <div class="form-row part-gender">
                     <label for="">稱謂</label>
                     <div class="select-wrapper">
                       <select name="a-type" id="a-type">
@@ -78,91 +78,93 @@
                       </select>
                     </div>
                   </div>
-                  <div class="form-row">
+                  <div class="form-row part-name">
                     <label for="">姓名</label>
                     <input id="name" type="text" placeholder="請輸入姓名">
                   </div>
-                </div>
-                <div class="form-row">
-                  <label for="">電話</label>
-                  <input id="phone" type="text" placeholder="請輸入行動電話">
-                </div>
-                <div class="form-row">
-                  <label for="">Email</label>
-                  <input id="email" type="text" placeholder="請輸入電子郵件">
-                </div>
-                <div class="form-row">
-                  <label for="">縣市</label>
-                  <div class="select-wrapper">
-                    <select name="b-type" id="b-type">
-                      <!-- 有時間的話，做API縣市資料串接 -->
-                      <option value="">請選擇縣市</option>
-                      <option value="">北部</option>
-                      <option value="">中部</option>
-                      <option value="">南部</option>
-                      <option value="">中部</option>
-                      <option value="">不拘</option>
-                    </select>
+                  <div class="form-row part-phone">
+                    <label for="">電話</label>
+                    <input id="phone" type="text" placeholder="請輸入行動電話">
                   </div>
-                </div>
-                <div class="form-row">
-                  <label for="">地址</label>
-                  <input id="address" type="text" placeholder="請輸入地址">
-                </div>
-              </div>
-              <div class="part d-none">
-                <!-- 第二頁 -->
-                <h4>運送方式</h4>
-                <div class="form-row">
-                  <div class="form-option">
-                    <input type="radio">
-                    <div class="radio-text">
-                      <label for="">標準運送</label>
-                      <label for="">約 3~7 個工作天</label>
-                    </div>
-                    <label for="">免費</label>
+                  <div class="form-row part-email">
+                    <label for="">Email</label>
+                    <input id="email" type="text" placeholder="請輸入電子郵件">
                   </div>
-                  <div class="form-option">
-                    <input type="radio">
-                    <div class="radio-text">
-                      <label for="">DHL運送</label>
-                      <label for="">48 小時內送達</label>
+                  <div class="form-row part-city">
+                    <label for="">縣市</label>
+                    <div class="select-wrapper">
+                      <select name="b-type" id="b-type">
+                        <!-- 有時間的話，做API縣市資料串接 -->
+                        <option value="">請選擇縣市</option>
+                        <option value="">北部</option>
+                        <option value="">中部</option>
+                        <option value="">南部</option>
+                        <option value="">中部</option>
+                        <option value="">不拘</option>
+                      </select>
                     </div>
-                    <label for="">$500
-                    </label>
+                  </div>
+                  <div class="form-row part-add">
+                    <label for="">地址</label>
+                    <input id="address" type="text" placeholder="請輸入地址">
                   </div>
                 </div>
               </div>
-              <div class="part d-none">
-                <!-- 第三頁 -->
-                <!-- 有力氣再做資料驗證 -->
-                <div class="form-row">
-                  <label for="">持卡人姓名</label>
-                  <input type="text" placeholder="John Doe">
+              <div class="part-container d-none">
+                <div class="part ">
+                  <!-- 第二頁 -->
+                  <h4 class="part-title">運送方式</h4>
+                  <div class="form-row form-radio">
+                    <div class="form-option form-standard">
+                      <input type="radio" class="option-radio">
+                      <div class="radio-text">
+                        <label for="">標準運送</label>
+                        <label for="">約 3~7 個工作天</label>
+                      </div>
+                      <span class="radio-fee">免費</span>
+                    </div>
+                    <div class="form-option form-DHL">
+                      <input type="radio" class="option-radio">
+                      <div class="radio-text">
+                        <label for="">DHL運送</label>
+                        <label for="">48 小時內送達</label>
+                      </div>
+                      <span class="radio-fee">$500</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-row">
-                  <label for="">卡號</label>
-                  <input type="text" placeholder="1111 2222 3333 4444">
-                </div>
-                <div class="form-row">
-                  <label for="">有效期限</label>
-                  <input type="text" placeholder="MM/YY">
-                </div>
-                <div class="form-row">
-                  <label for="">CVC/CCV</label>
-                  <input type="text" placeholder="123">
+              </div>
+              <div class="part-container d-none">
+                <div class="part">
+                  <!-- 第三頁 -->
+                  <!-- 有力氣再做資料驗證 -->
+                  <h4 class="part-title">付款資訊</h4>
+
+                  <div class="form-row card-name">
+                    <label for="">持卡人姓名</label>
+                    <input type="text" placeholder="John Doe">
+                  </div>
+                  <div class="form-row card-number">
+                    <label for="">卡號</label>
+                    <input type="text" placeholder="1111 2222 3333 4444">
+                  </div>
+                  <div class="form-row card-date">
+                    <label for="">有效期限</label>
+                    <input type="text" placeholder="MM/YY">
+                  </div>
+                  <div class="form-row card-cvc">
+                    <label for="">CVC/CCV</label>
+                    <input type="text" placeholder="123">
+                  </div>
                 </div>
               </div>
             </div>
-            <div id="btn-control" class="control-panel d-flex ">
-              <button disabled class="btn btn-outline ">上一步</button>
-              <button class="btn btn-primary ">下一步 </button>
-            </div>
+
           </form>
 
           <div class="shopping-car">
             <div class="container car-container">
-              <div class="card-list">
+              <div class="card-list" id="card-list">
                 <!-- 可以改用JS帶入資料 -->
                 <div class="card">
                   <img src="/image/jean1.png" alt="" id="card-img">
@@ -182,12 +184,23 @@
                 </div>
               </div>
               <div class="cart">
-                <div class="cart-shipping"> 運費</div>
-                <div class="cart-shipping_price">免費</div>
+                <div class="cart-shipping">
+                  <div class="shipping-title">運費</div>
+                  <div class="shipping-price">免費</div>
+                </div>
+                <div class="cart-shipping_price">
+                  <div class="acount-title">小計</div>
+                  <div class="account-price">$0</div>
+
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div id="btn-control" class="control-panel d-flex ">
+        <button disabled class="btn btn-outline d-none">上一步</button>
+        <button class="btn btn-primary ">下一步 </button>
       </div>
     </main>
   </div>
